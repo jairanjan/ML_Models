@@ -1,0 +1,19 @@
+# Generate an SSH Key
+# type this in this git bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+#-t rsa: Specifies the type of key (RSA).
+#-b 4096: Sets the key length to 4096 bits for added security.
+#Replace "your_email@example.com" with your GitHub email.
+#Press Enter to save the key in the default location (~/.ssh/id_rsa). Type the file path you want if you want to open the pub file
+#Optionally, set a passphrase for additional security (you’ll need this passphrase to use the key) - Don't do it 
+# otherwise you will have to enter the passowrd again just press enter
+
+
+# Start the ssh agent
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_rsa
+
+cat ~/.ssh/id_rsa.pub
+# copy the code and add it to the SSH key section in github or bitbucket
